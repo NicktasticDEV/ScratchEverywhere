@@ -40,6 +40,9 @@
 #ifdef RENDERER_GX2
 #include <renderers/gx2/text_gx2.hpp>
 #endif
+#ifdef RENDERER_GX
+#include <renderers/gx/text_gx.hpp>
+#endif
 #ifdef RENDERER_GDI
 #include <renderers/gdi/text_gdi.hpp>
 #endif
@@ -97,6 +100,10 @@ std::unique_ptr<TextObject> createTextObject(std::string txt, double posX, doubl
 #ifdef RENDERER_GX2
     case Renderers::GX2:
         return std::make_unique<TextObjectGX2>(txt, posX, posY, fontPath);
+#endif
+#ifdef RENDERER_GX
+    case Renderers::GX:
+        return std::make_unique<TextObjectGX>(txt, posX, posY, fontPath);
 #endif
 #ifdef RENDERER_GDI
     case Renderers::GDI:

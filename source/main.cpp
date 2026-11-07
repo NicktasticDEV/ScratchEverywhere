@@ -250,6 +250,8 @@ int main(int argc, char **argv) {
             Render::currentRenderer = Renderers::Xbox;
         } else if (arg == "--nv2a") {
             Render::currentRenderer = Renderers::NV2A;
+        } else if (arg == "--gx") {
+            Render::currentRenderer = Renderers::GX;
         }
         // these will never ever be used but like consistency i guess
         else if (arg == "--c2d") {

@@ -69,6 +69,9 @@ static bool hasSVGExtension(const std::string &path) {
 #if defined(RENDERER_GX2)
 #include <image_gx2.hpp>
 #endif
+#if defined(RENDERER_GX)
+#include <image_gx.hpp>
+#endif
 #if defined(RENDERER_GDI)
 #include <image_gdi.hpp>
 #endif
@@ -187,6 +190,11 @@ nonstd::expected<std::shared_ptr<Image>, std::string> createImageFromFile(std::s
         rawImg = new Image_GX2(filePath, fromScratchProject, bitmapHalfQuality, scale);
         break;
 #endif
+#if defined(RENDERER_GX)
+    case Renderers::GX:
+        rawImg = new Image_GX(filePath, fromScratchProject, bitmapHalfQuality, scale);
+        break;
+#endif
 #if defined(RENDERER_GDI)
     case Renderers::GDI:
         rawImg = new Image_GDI(filePath, fromScratchProject, bitmapHalfQuality, scale);
@@ -285,6 +293,11 @@ nonstd::expected<std::shared_ptr<Image>, std::string> createImageFromZip(std::st
 #if defined(RENDERER_GX2)
     case Renderers::GX2:
         rawImg = new Image_GX2(filePath, zip, bitmapHalfQuality, scale);
+        break;
+#endif
+#if defined(RENDERER_GX)
+    case Renderers::GX:
+        rawImg = new Image_GX(filePath, zip, bitmapHalfQuality, scale);
         break;
 #endif
 #if defined(RENDERER_GDI)

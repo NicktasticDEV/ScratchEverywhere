@@ -88,6 +88,10 @@ WindowSE *createWindow(int width, int height, const std::string &title, Windowin
         case Renderers::GX2:
             b = WindowingBackends::WiiU;
             break;
+        case Renderers::GX:
+            //? VI code could probably be moved to windowing, but I dunno (Gotta see how similar the VI and GX API are across Wii and GC)
+            b = WindowingBackends::Headless;
+            break;
         case Renderers::D3D9:
         case Renderers::GDI:
             b = WindowingBackends::Win32;

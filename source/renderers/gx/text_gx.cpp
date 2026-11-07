@@ -1,23 +1,13 @@
-#include "text_headless.hpp"
+#include "text_gx.hpp"
 
 TextObjectGX::TextObjectGX(std::string txt, double posX, double posY, std::string fontPath)
-    : TextObject(txt, posX, posY, fontPath) {
+    : TextObjectBase(txt, posX, posY, fontPath, 30.0f) {
 }
 
-TextObjectGX::~TextObjectGX() {
-}
+TextObjectGX::~TextObjectGX() = default;
 
-void TextObjectGX::setText(std::string txt) {
-    text = txt;
+void TextObjectGX::uploadAtlas(FontGeneration &gen) {
 }
 
 void TextObjectGX::render(int xPos, int yPos) {
-}
-
-std::vector<float> TextObjectGX::getSize() {
-    return {0.0f, 0.0f};
-}
-
-std::vector<float> TextObjectGX::getStringSize(const std::string &txt) {
-    return {0.0f, 0.0f};
 }

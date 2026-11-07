@@ -81,3 +81,13 @@ void Renderer_GX::penStamp(Sprite *sprite) {
 
 void Renderer_GX::penClear() {
 }
+
+void Renderer_GX::cleanupPen() {
+}
+
+void Renderer_GX::preparePenColorQuery(float minX, float minY, float maxX, float maxY) {
+}
+
+bool Renderer_GX::samplePenColor(float x, float y, uint8_t &r, uint8_t &g, uint8_t &b, uint8_t &a) {
+    return false;
+}
